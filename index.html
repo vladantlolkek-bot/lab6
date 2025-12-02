@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сложный пример CSS Grid</title>
+
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+
+  .grid-container
+   {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr; /* два столбца */
+    grid-template-rows: auto auto auto auto auto; /* пять строк */
+
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "wide full"
+      "bottom bottom"
+      "big footer";
+
+    gap: 20px;
+
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  /* Цветные элементы */
+  .item1 { grid-area: header; background-color: #FF6B6B; }
+  .item2 { grid-area: sidebar; background-color: #FFD93D; }
+  .item3 { grid-area: content; background-color: #6BCB77; }
+  .item4 { grid-area: footer; background-color: #4D96FF; }
+  .item5 { grid-area: big; background-color: #FFB6B9; }
+  .item6 { grid-area: wide; background-color: #A1E8AF; }
+  .item7 { grid-area: full; background-color: #FFE156; }
+  .item8 { grid-area: bottom; background-color: #FF9F1C; }
+
+
+  .item5 {
+    height: 250px;
+  }
+
+  .item4 
+  {
+    width: 170px;
+    height: 60px;
+    justify-self: end;
+    align-self: end;
+    font-size: 1.2em;
+  }
+
+  .grid-item 
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="grid-container">
+  <div class="grid-item item1">Заголовок</div>
+  <div class="grid-item item2">Боковая панель</div>
+  <div class="grid-item item3">Контент</div>
+  <div class="grid-item item6">Широкий блок</div>
+  <div class="grid-item item7">Во всю ширину</div>
+  <div class="grid-item item8">Нижний блок</div>
+  <div class="grid-item item5">Большой блок</div>
+  <div class="grid-item item4">Футер</div>
+</div>
+
+</body>
+</html>
